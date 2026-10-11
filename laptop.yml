@@ -7,3 +7,21 @@
         name: "{{ lookup('file', 'packages.txt').splitlines() }}"
         state: present
         update_cache: true
+    
+    - name: Create Nerd Font directory
+      ansible.builtin.file:
+        path: /usr/local/share/fonts/JetBrainsMonoNerd
+        state: directory
+        mode: "0755"
+
+    - name: Install JetBrainsMono Nerd Font
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+        dest: /usr/local/share/fonts/JetBrainsMonoNerd
+        remote_src: true
+        creates: /usr/local/share/fonts/JetBrainsMonoNerd/JetBrainsMonoNerdFont-Regular.ttf
+      notify: Refresh font cache
+
+  handlers:
+    - name: Refresh font cache
+      ansible.builtin.command: fc-cache -f
