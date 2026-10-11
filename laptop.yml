@@ -1,0 +1,9 @@
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        name: "{{ lookup('file', 'packages.txt').splitlines() }}"
+        state: present
+        update_cache: true
