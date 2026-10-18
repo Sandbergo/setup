@@ -216,3 +216,12 @@ flatpak
 podman
 distrobox
 lsd
+bat
+iw
+onedrive
+starship
+syncthing
+tree
+ufw
+wavemon
+
