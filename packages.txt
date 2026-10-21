@@ -224,4 +224,4 @@ syncthing
 tree
 ufw
 wavemon
-
+wireshark
