@@ -225,3 +225,5 @@ tree
 ufw
 wavemon
 wireshark
+code
+gpg
